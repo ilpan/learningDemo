@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>List Images</title>
+</head>
+<body>
+<ol>
+    <!-- 双大括号用来区分模板代码与html的分隔符 -->
+    <!-- 括号里面可以是显示输出的数据或者是流程控制语句 -->
+    {{range $.images}}
+        <li>
+            <!-- .|formatter表示 对当前这个元素的值以formatter方式格式化输出 -->
+            <!-- .|urlquery表示对当前元素的值进行转换以适合作为url一部分 -->
+            <!-- .|html表示对当前元素的值进行适合用于HTML显示的字符串化 -->
+            <a href="/view?id={{.|urlquery}}">{{.|html}}</a>
+        </li>
+    {{ end }}
+</ol>
+</body>
+</html>
